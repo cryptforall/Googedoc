@@ -4,6 +4,7 @@ Simple script template for Google Docs.
 Add in: Extension: Apps 
 
 var userQuestion = "What is the weather like today?";
+
 var chatGPTResponse = getChatGPTResponse(userQuestion);
 Logger.log(chatGPTResponse);
 
