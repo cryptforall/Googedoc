@@ -1,0 +1,51 @@
+function generateLearningTemplate() {
+  // Create a new Google Doc
+  var doc = DocumentApp.create('LinkedIn Learning Template');
+  
+  // Add a title
+  var title = doc.appendParagraph('LinkedIn Learning Template');
+  title.setHeading(DocumentApp.ParagraphHeading.HEADING1);
+  
+  // Add an introduction section
+  var introduction = doc.appendParagraph('Introduction');
+  introduction.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  
+  var introContent = doc.appendParagraph('Welcome to the LinkedIn Learning Template! This template is designed to help you organize your learning journey on LinkedIn. You can use this document to keep track of courses, take notes, and set goals.');
+  introContent.setIndentStart(20);
+  
+  // Add a course section
+  var courseSection = doc.appendParagraph('Courses');
+  courseSection.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  
+  var courseContent = doc.appendParagraph('Here, you can list the courses you want to take or have already completed. Include the course title, instructor, and any additional notes or key takeaways.');
+  courseContent.setIndentStart(20);
+  
+  // Add a goals section
+  var goalsSection = doc.appendParagraph('Goals');
+  goalsSection.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  
+  var goalsContent = doc.appendParagraph('Set your learning goals and objectives here. What skills or knowledge do you want to gain? How many courses do you plan to complete? Use this section to track your progress and stay motivated.');
+  goalsContent.setIndentStart(20);
+  
+  // Add a resources section
+  var resourcesSection = doc.appendParagraph('Resources');
+  resourcesSection.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  
+  var resourcesContent = doc.appendParagraph('List any additional resources you find helpful, such as books, articles, or websites. Include links or brief descriptions to easily reference them later.');
+  resourcesContent.setIndentStart(20);
+  
+  // Add a conclusion section
+  var conclusion = doc.appendParagraph('Conclusion');
+  conclusion.setHeading(DocumentApp.ParagraphHeading.HEADING2);
+  
+  var conclusionContent = doc.appendParagraph('Congratulations on taking the first step towards continuous learning on LinkedIn! Remember to update this document as you progress and adapt it to your own learning style.');
+  conclusionContent.setIndentStart(20);
+  
+  // Save and open the document
+  doc.saveAndClose();
+  var docUrl = doc.getUrl();
+  Logger.log('LinkedIn Learning Template created: ' + docUrl);
+  
+  // Provide the document URL to the user
+  return docUrl;
+}
