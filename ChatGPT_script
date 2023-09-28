@@ -1,0 +1,33 @@
+function getChatGPTResponse(input) {
+  var apiKey = "YOUR_API_KEY"; // Replace with your ChatGPT API key
+  var url = "https://api.openai.com/v1/chat/completions";
+
+  var payload = {
+    model: "gpt-3.5-turbo", // Specify the ChatGPT model
+    messages: [
+      {
+        role: "system",
+        content: "You are a user", // Set the user role
+      },
+      {
+        role: "user",
+        content: input, // User input
+      },
+    ],
+  };
+
+  var options = {
+    method: "POST",
+    headers: {
+      "Authorization": "Bearer " + apiKey,
+      "Content-Type": "application/json",
+    },
+    payload: JSON.stringify(payload),
+  };
+
+  var response = UrlFetchApp.fetch(url, options);
+  var responseData = JSON.parse(response.getContentText());
+
+  var chatGPTResponse = responseData.choices[0].message.content;
+  return chatGPTResponse;
+}
